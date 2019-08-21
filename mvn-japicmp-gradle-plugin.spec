@@ -4,7 +4,7 @@
 #
 Name     : mvn-japicmp-gradle-plugin
 Version  : elease.0.2.4
-Release  : 2
+Release  : 3
 URL      : https://github.com/melix/japicmp-gradle-plugin/archive/RELEASE_0_2_4.tar.gz
 Source0  : https://github.com/melix/japicmp-gradle-plugin/archive/RELEASE_0_2_4.tar.gz
 Source1  : https://plugins.gradle.org/m2/me/champeau/gradle/japicmp-gradle-plugin/0.2.4/japicmp-gradle-plugin-0.2.4.jar
@@ -12,6 +12,7 @@ Source2  : https://plugins.gradle.org/m2/me/champeau/gradle/japicmp-gradle-plugi
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
+Requires: mvn-japicmp-gradle-plugin-data = %{version}-%{release}
 Requires: mvn-japicmp-gradle-plugin-license = %{version}-%{release}
 BuildRequires : buildreq-mvn
 BuildRequires : gradle
@@ -22,6 +23,14 @@ BuildRequires : gradle
 :issues: https://github.com/melix/japicmp-gradle-plugin/issues
 :gradle-url: http://gradle.org/
 :plugin-version: 0.2.4
+
+%package data
+Summary: data components for the mvn-japicmp-gradle-plugin package.
+Group: Data
+
+%description data
+data components for the mvn-japicmp-gradle-plugin package.
+
 
 %package license
 Summary: license components for the mvn-japicmp-gradle-plugin package.
@@ -39,9 +48,20 @@ license components for the mvn-japicmp-gradle-plugin package.
 %install
 mkdir -p %{buildroot}/usr/share/package-licenses/mvn-japicmp-gradle-plugin
 cp LICENSE.txt %{buildroot}/usr/share/package-licenses/mvn-japicmp-gradle-plugin/LICENSE.txt
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/me/champeau/gradle/japicmp-gradle-plugin/0.2.4
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/me/champeau/gradle/japicmp-gradle-plugin/0.2.4/japicmp-gradle-plugin-0.2.4.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/me/champeau/gradle/japicmp-gradle-plugin/0.2.4
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/me/champeau/gradle/japicmp-gradle-plugin/0.2.4/japicmp-gradle-plugin-0.2.4.pom
+
 
 %files
 %defattr(-,root,root,-)
+
+%files data
+%defattr(-,root,root,-)
+/usr/share/java/.m2/repository/me/champeau/gradle/japicmp-gradle-plugin/0.2.4/japicmp-gradle-plugin-0.2.4.jar
+/usr/share/java/.m2/repository/me/champeau/gradle/japicmp-gradle-plugin/0.2.4/japicmp-gradle-plugin-0.2.4.pom
 
 %files license
 %defattr(0644,root,root,0755)
