@@ -4,7 +4,7 @@
 #
 Name     : mvn-japicmp-gradle-plugin
 Version  : elease.0.2.4
-Release  : 1
+Release  : 2
 URL      : https://github.com/melix/japicmp-gradle-plugin/archive/RELEASE_0_2_4.tar.gz
 Source0  : https://github.com/melix/japicmp-gradle-plugin/archive/RELEASE_0_2_4.tar.gz
 Source1  : https://plugins.gradle.org/m2/me/champeau/gradle/japicmp-gradle-plugin/0.2.4/japicmp-gradle-plugin-0.2.4.jar
